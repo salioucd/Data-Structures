@@ -36,7 +36,15 @@ def find_coffee(filename):
     #to one line because we need to be able to close the
     #file.
 
-
+def find_coffee(filename):
+    f = open(filename)
+    contents = f.read()
+    if "coffee" in contents:
+        return True
+    else:
+        return False  
+    f.close()
+    
 
 #You can test your function with the provided files named 
 #"coffeeful.txt" and "coffeeless.txt". With their original
