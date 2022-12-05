@@ -24,3 +24,7 @@ this_group.append(member_name)
 
 #Blank #3
 No third line is necessary.
+
+The code written on lines 2 through 4 of exercise 4.5.4 Exercise 2 could be condensed down to one line. Which of the following lines could be used to replace it?
+
+return groups[group_number].append(member_name)
