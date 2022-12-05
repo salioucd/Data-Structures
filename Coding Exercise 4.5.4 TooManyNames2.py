@@ -75,7 +75,26 @@ def name_lists(names):
 
 
 
-
+# required method, taking a list of full names
+def name_lists(fullnames):
+    # defining an empty dict
+    result = dict()
+    # looping through each name in fullnames
+    for name in fullnames:
+        # fetching first name from current name
+        first = name.split()[0]
+        # if first is not a key in result dict, adding to result dict with first being
+        # the key and an empty list being the value
+        if first not in result:
+            result[first] = []
+        # appending name to the list associated with key=first
+        result[first].append(name)
+    # now we sort the lists associated with each key, alphabetically
+    # note: we are only sorting the values (lists), not the keys of dicts, which is not possible
+    for key in result:
+        result[key].sort()
+    # finally returning list
+    return result
   
  #Below are some lines of code that will test your function.
 #You can change the value of the variable(s) to test your
