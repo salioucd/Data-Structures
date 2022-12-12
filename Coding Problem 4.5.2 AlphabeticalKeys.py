@@ -44,6 +44,7 @@ def alphabetical_keys(the_dict):
     for key in keys_as_list:
         
         single_string+=key+": " + str(the_dict.get(key)) + "\n"
+        # OR single_string += key + ": " + str(the_dict[key]) + "\n"
         
     return single_string
 
