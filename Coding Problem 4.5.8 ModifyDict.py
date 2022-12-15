@@ -41,6 +41,56 @@ def modify_dict (the_dict):
         del the_dict[not_cap]
     return the_dict
 
+#-----------------------------------------------------------------------------------------
+
+def modify_dict(name_dict):
+    
+    #The hint in the original instructions tells you that
+    #we can't iterate through the dictionary and delete
+    #items from it at the same time. Why not? When
+    #iterating, Python keeps a pointer to the current item.
+    #When you delete an item, every item slides back one
+    #spot -- so the pointer is now pointing to what *was*
+    #the next item. Then, when it gets the next item, it
+    #skips what was actually the next item.
+    #
+    #So instead, we want to first make a list of all the
+    #keys we want to delete. First, we initialize an
+    #empty list:
+    
+    del_list = []
+    
+    #Then we iterate through the keys:
+    
+    for key in name_dict:
+        
+        #And if the key is not capitalized (e.g. if it
+        #does not equal the capitalized version of
+        #itself)...
+        
+        if key != key.capitalize():
+            
+            #...then we add it to our list of keys to
+            #delete:
+            
+            del_list.append(key)
+    
+    #Once that's done, del_list has a list of all the
+    #keys in name_dict to delete. Now we want to iterate
+    #through the keys we stored into del_list. Note that
+    #this is okay because we're iterating through del_list
+    #and deleting from name_dict, *not* iterating through
+    #name_dict:
+    
+    for key in del_list:
+        del name_dict[key]
+        
+    #After that, name_dict is modified with the new value,
+    #so we just return it:
+    
+    return name_dict
+
+
 #Below are some lines of code that will test your function.
 #You can change the value of the variable(s) to test your
 #function with different inputs.
